@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -12,7 +14,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('product.index', compact('products'));
+        return view('products.index', compact('products'));
     }
 
     /**
@@ -44,7 +46,7 @@ class ProductController extends Controller
             'image' => $imagePath,
         ]);
 
-        return redirect()->route('products.show')->with('success', 'Product created successfully');
+        return redirect()->route('products.show', slug)->with('success', 'Product created successfully');
     }
 
     /**
