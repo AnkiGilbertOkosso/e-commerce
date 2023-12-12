@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+Route::resource('products', ProductController::class);
 Route::get('/', [App\Http\Controllers\PageController::class, 'index']);
 Route::get('/contact', [App\Http\Controllers\PageController::class, 'contact']);
 
