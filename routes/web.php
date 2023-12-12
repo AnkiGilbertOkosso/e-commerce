@@ -12,13 +12,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/index', function () {
-    return view('index');
-});
+Route::get('/', [App\Http\Controllers\PageController::class, 'index']);
+Route::get('/contact', [App\Http\Controllers\PageController::class, 'contact']);
 
 Auth::routes();
 
